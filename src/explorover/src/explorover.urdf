@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<robot name="explorover">
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.25 0.15 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.25 0.15 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Front Left Wheel -->
+  <joint name="front_left_wheel_joint" type="continuous">
+    <origin xyz="0.125 0.075 0"/>
+    <parent link="base_link"/>
+    <child link="front_left_wheel_link"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link name="front_left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+    <!-- Front Right Wheel; TODO: UPDATE -->
+  <joint name="front_left_wheel_joint" type="continuous">
+    <origin xyz="0.125 0.075 0"/>
+    <parent link="base_link"/>
+    <child link="front_left_wheel_link"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link name="front_left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+    <!-- Read Left Wheel; TODO: UPDATE -->
+  <joint name="front_left_wheel_joint" type="continuous">
+    <origin xyz="0.125 0.075 0"/>
+    <parent link="base_link"/>
+    <child link="front_left_wheel_link"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link name="front_left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+    <!-- Read Right Wheel; TODO: UPDATE -->
+  <joint name="front_left_wheel_joint" type="continuous">
+    <origin xyz="0.125 0.075 0"/>
+    <parent link="base_link"/>
+    <child link="front_left_wheel_link"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link name="front_left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Camera Link -->
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0.125 0.075 0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.125 0.075 0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.125 0.075 0.1" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <!-- Ultrasonic Sensor Link -->
+  <link name="ultrasonic_sensor_link">
+    <visual>
+      <origin xyz="0.1 0.075 0.1" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1 0.075 0.1" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ultrasonic_sensor_joint" type="fixed">
+    <origin xyz="0.1 0.075 0.2" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="ultrasonic_sensor_link"/>
+  </joint>
+
+  <!-- Differential drive controller -->
+  <transmission name="front_left_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_left_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="front_left_wheel_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Repeat similar blocks for other wheels -->
+
+</robot>

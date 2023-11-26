@@ -1,0 +1,5 @@
+<launch>
+  <param name="ExploRover" textfile="explorover_ws/src/explorover/src/explorover.urdf" />
+
+  <!-- Additional launch configurations -->
+</launch>

@@ -1,0 +1,1 @@
+// Add camera handling logic
